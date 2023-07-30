@@ -30,7 +30,7 @@ class Unauthorized {
 
                 // 禁止コマンドのリンク
                 val banMessage = TextComponent("${ChatColor.RED}${PlayerName}さんをBANする[クリック]")
-                banMessage.clickEvent = ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ban $PlayerName")
+                banMessage.clickEvent = ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/ban $PlayerName")
                 loopPlayer.spigot().sendMessage(banMessage)
 
                 loopPlayer.sendMessage("${ChatColor.AQUA}-----------------------")
