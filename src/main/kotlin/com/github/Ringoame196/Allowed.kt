@@ -10,6 +10,11 @@ class Allowed {
     fun Command(command: String, e: org.bukkit.event.Event, sender: CommandSender) {
         if (!command.contains("tag")) { return }
         if (!command.contains("Allowed")) { return }
+        if (command.contains("execute")) {
+            sender.sendMessage("${ChatColor.RED}認証タグをexecuteで操作することは禁止されています")
+            Unauthorized().cancel(e)
+            return
+        }
         val commandPlayer = GET().PlayerNameFromCommand(command)
         val targetPlayer = Bukkit.getPlayer(commandPlayer!!)
         if (targetPlayer !is Player) { return }
